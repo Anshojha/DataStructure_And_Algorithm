@@ -14,13 +14,26 @@ struct Node
 void linkedListTravesral(struct Node *head)
 {
     struct Node *ptr = head;
-    printf("Element is %d\n", ptr->data);
-    ptr = ptr->next;
-    while (ptr != head)
-    {
+    do{
         printf("Element is %d\n", ptr->data);
         ptr = ptr->next;
+    }while (ptr != head);
+}
+
+struct Node * insertAtIndex(struct Node *head, int data)
+{
+    struct Node * ptr = (struct Node *) malloc(sizeof(struct Node));
+    ptr->data =data;
+    struct Node * p = head->next;
+    while(p->next!=head)
+    {
+        p=p->next;
     }
+    p->next=ptr;
+    ptr->next=head;
+    // ptr = head;
+    // return head;
+
 }
 int main()
 {
@@ -53,8 +66,12 @@ int main()
     fourth->next = head;
 
     // Calling the function to traverse
-
+    printf("\n*******Before********\n");
     linkedListTravesral(head);
-
+    head = insertAtIndex(head,56);
+    head = insertAtIndex(head,57);
+    head = insertAtIndex(head,5723);
+    printf("\n********After*******\n");
+    linkedListTravesral(head);
     return 0;
 }
