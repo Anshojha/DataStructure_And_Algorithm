@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 void reverse(int arr[], int n)
 {
 int temp;
@@ -15,10 +16,9 @@ int temp;
 int main()
 {
     int  temp,n;
-    int arr[100];
     printf("Enter the array size: ");
     scanf("%d", &n);
-    
+    int *arr = (int*) malloc(sizeof(int)*n);
     for (int i = 0; i < n; i++)
     {
         printf("Enter the element:\n");
