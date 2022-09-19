@@ -1,3 +1,3 @@
 # DataStructure_And_Algorithm
 
-**I Will update here my daily updates reagarding DSA learning**
+**I Will update here my daily learning reagarding DSA learning**
