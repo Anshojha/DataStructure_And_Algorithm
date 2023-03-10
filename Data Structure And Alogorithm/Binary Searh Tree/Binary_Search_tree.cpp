@@ -1,33 +1,22 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-
-int bst(int arr[], int size, int ele)
-{
-    int start =1;
-    int end = size;
-    cout<<end;
-    int mid = (start + end) / 2;
-    while (start <= end)
-    {
-        
-        if (ele == arr[mid]){
-              
-             return mid;
+int binarySearchTree(int arr[], int size , int target){
+    int start =0;
+    int end = size -1;
+    int mid = (start + end)/2;
+    while(start <= end){
+        if(arr[mid]==target){
+            return mid;
         }
-           
-        else if (ele > arr[mid]){
-             start = mid + 1;
+        else if( arr[mid] < target){
+            start = mid +1;
         }
-           
-        else{
-              end = mid - 1; 
+        else {
+            end = mid -1;
         }
-         
-
-        mid = (start +end)/2;
+        mid = (start+end)/2;
     }
-
     return -1;
 }
 
@@ -44,6 +33,7 @@ int main()
    }
    cout<<"Enter the  target elel";
    cin>>tar;
-   bst(arr, size , tar);
+   int index =binarySearchTree(arr, size , tar);
+   cout<<"The index of the element"<<tar<<" is:"<<index;
     return 0;
 }
