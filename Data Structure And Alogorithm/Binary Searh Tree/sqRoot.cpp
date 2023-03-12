@@ -27,7 +27,7 @@ long long int sqRoot(int n){
 double precisedAns(int n , int precise, int tempSol){
     double ans = tempSol;
     double fanctor  =  1;
-    for(int i=0;i<precise ;i++){
+    for(int i=0;i<=precise ;i++){
         fanctor = fanctor/10;
         for (double j=0;j*j<n;j += fanctor ){
             ans =j;
@@ -42,6 +42,6 @@ int main()
         long long int n;
         cout<<"Enter the sqRoot :"<<endl;
         cin>>n;
-        cout<<sqRoot(n);    
-        cout<<precisedAns(n);    
+        int t = sqRoot(n);    
+        cout<<precisedAns(n,3,t);    
  return 0;}
