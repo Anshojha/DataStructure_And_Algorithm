@@ -22,6 +22,7 @@ int main()
         maxi.pop(); 
     }cout<<endl;
 
+    cout<<"Tu bata bhai bade -> "<<maxi.empty()<<endl;
     cout<<"The after size of maxi -> "<<maxi.size()<<endl;
 
     cout<<"--Its min heap--"<<endl;
@@ -36,6 +37,7 @@ int main()
         mini.pop(); 
     }cout<<endl;
     cout<<"The After del size of mini -> "<<mini.size()<<endl;
-
+    cout<<"Khali hai kya tu chote-> "<<mini.empty()<<endl;
+    cout<<"Tu bata bhai bade -> "<<maxi.empty()<<endl;
     return 0;
 }
