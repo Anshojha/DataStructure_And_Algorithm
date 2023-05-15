@@ -1,7 +1,15 @@
 #include<iostream>
 using namespace std;
 
-char toLowerCase();
+char toLowerCase(char ch){
+   if((ch>='a' && ch<='z')||(ch>=0 && ch<=9)){
+      return ch;
+   }
+   else{
+      char temp   = ch - 'A' + 'a';
+      return temp;
+   }
+};
 
 void reverse(char s[] , int n){
    int st=0;
@@ -35,6 +43,7 @@ int main()
 char name[size];
 cout<<"Enter the word :"<<endl;
 cin>>name;
+// cout<<"The lowerCase is ->" <<toLowerCase(name);
 cout<<"The entered word -> "<<name<<endl;
  reverse(name, size);
  cout<<"The reverse word -> "<<name<<endl;
