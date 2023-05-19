@@ -17,5 +17,9 @@ string reverseWord(string s){
 int main()
 {
   string s = "This is the string we are taliking about";
-  cout<<reverseWord(s);
+  string s2;
+  cout<<"Enter the second string as per your thought"<<endl;
+  getline(cin,s2);
+  cout<<reverseWord(s)<<endl;
+  cout<<reverseWord(s2)<<endl;
  return 0;}
