@@ -52,7 +52,6 @@ void inserAtPos(Node *&head, Node *tail, int pos, int d)
 
     newNode->next = temp->next;
     temp->next = newNode;
-    // return head;
 }
 
 void printLL(Node *head)
@@ -62,6 +61,36 @@ void printLL(Node *head)
     {
         cout << temp->data << " ";
         temp = temp->next;
+    }
+}
+
+void deleteNode(Node *head, Node *tail, int pos)
+{
+    if (pos == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        Node *temp = head;
+        Node *prev = NULL;
+        int cnt = 1;
+        while (cnt < pos)
+        {
+            prev = temp;
+            temp = temp->next;
+            cnt++;
+        }
+        if (prev->next = NULL)
+        {
+            
+        }
+
+        prev->next = temp->next;
+        delete temp;
     }
 }
 
@@ -79,11 +108,11 @@ int main()
     inserAtTail(tail, 15);
     inserAtTail(tail, 16);
     cout << endl;
-    //     inserAtHead(node1 , 13);
-    //     printLL(node1);
-    //     inserAtHead(node1 , 14);
-    //     printLL(node1);
-    //     inserAtHead(node1 , 15);
+    inserAtHead(node1, 13);
+    printLL(node1);
+    inserAtHead(node1, 14);
+    printLL(node1);
+    inserAtHead(node1, 15);
     printLL(node1);
     inserAtPos(node1, tail, 3, 1);
     inserAtPos(node1, tail, 8, 90);
@@ -93,9 +122,13 @@ int main()
     cout << endl;
     printLL(node1);
     cout << endl;
-
+    deleteNode(node1, tail, 14);
     cout << "Head -> " << node1->data << endl;
     cout << "Tail -> " << tail->data << endl;
-
+    // deleteNode(node1, 1);
+    printLL(node1);
+    cout << endl;
+    cout << "Head -> " << node1->data << endl;
+    cout << "Tail -> " << tail->data << endl;
     return 0;
 }
