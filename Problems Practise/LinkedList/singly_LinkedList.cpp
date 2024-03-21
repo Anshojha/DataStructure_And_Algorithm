@@ -86,13 +86,37 @@ void deleteNode(Node *head, Node *tail, int pos)
         }
         if (prev->next = NULL)
         {
-            
         }
 
         prev->next = temp->next;
         delete temp;
     }
 }
+
+Node * reverseLindkedList(Node* head)
+{
+    if (head == NULL || head->next != NULL)
+    {
+        return head;
+    }
+
+    Node *curr = head;
+    Node *prev = NULL;
+    Node *forward = NULL;
+    while (curr != NULL)
+    {
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
+    }
+    head = prev;
+    return head;
+}
+
+
+
+
 
 int main()
 {
@@ -108,27 +132,31 @@ int main()
     inserAtTail(tail, 15);
     inserAtTail(tail, 16);
     cout << endl;
-    inserAtHead(node1, 13);
+    // inserAtHead(node1, 13);
+    // printLL(node1);
+    // inserAtHead(node1, 14);
+    // printLL(node1);
+    // inserAtHead(node1, 15);
     printLL(node1);
-    inserAtHead(node1, 14);
-    printLL(node1);
-    inserAtHead(node1, 15);
-    printLL(node1);
-    inserAtPos(node1, tail, 3, 1);
-    inserAtPos(node1, tail, 8, 90);
-    inserAtPos(node1, tail, 9, 100);
-    inserAtPos(node1, tail, 10, 100);
-    inserAtPos(node1, tail, 4, 100);
-    cout << endl;
-    printLL(node1);
-    cout << endl;
-    deleteNode(node1, tail, 14);
-    cout << "Head -> " << node1->data << endl;
-    cout << "Tail -> " << tail->data << endl;
-    // deleteNode(node1, 1);
-    printLL(node1);
-    cout << endl;
-    cout << "Head -> " << node1->data << endl;
-    cout << "Tail -> " << tail->data << endl;
+    // inserAtPos(node1, tail, 3, 1);
+    // inserAtPos(node1, tail, 8, 90);
+    // inserAtPos(node1, tail, 9, 100);
+    // inserAtPos(node1, tail, 10, 100);
+    // inserAtPos(node1, tail, 4, 100);
+    // cout << endl;
+    // printLL(node1);
+    // cout << endl;
+    // deleteNode(node1, tail, 14);
+    // cout << "Head -> " << node1->data << endl;
+    // cout << "Tail -> " << tail->data << endl;
+    // // deleteNode(node1, 1);
+    // printLL(node1);
+    // cout << endl;
+    // cout << "Head -> " << node1->data << endl;
+    // cout << "Tail -> " << tail->data << endl;
+     reverseLindkedList(node1);
+     cout<<endl;
+    cout << "Printing After Reversing" << endl;
+     printLL(node1);
     return 0;
 }

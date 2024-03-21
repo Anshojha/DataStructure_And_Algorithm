@@ -2,6 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// int romanTobinary(string s){
+//   uma
+// }
+
 int binaryToDecimal(int n)
 {
   int ans = 0;
