@@ -40,8 +40,8 @@ void inorder(Node *root)
         return;
     }
     inorder(root->left);
-    cout << root->data;
-    cout << endl;
+    cout << root->data << " ";
+   
     inorder(root->right);
 }
 
@@ -53,11 +53,31 @@ void postorder(Node *root)
         return;
     }
     postorder(root->right);
-    cout << root->data;
-    cout << endl;
+    cout << root->data << " ";
+ 
     postorder(root->left);
 }
 
+
+Node* minValue(Node* root){
+    Node* temp1 = root;
+
+
+    while(temp1 -> left != NULL){
+        temp1 = temp1 -> left;
+    }
+    return temp1;
+}
+
+Node* maxValue(Node* root){
+    Node* temp1 = root;
+
+
+    while(temp1 -> right != NULL){
+        temp1 = temp1 -> right;
+    }
+    return temp1;
+}
 int main()
 {
 
@@ -68,10 +88,16 @@ int main()
     insertBST(root, 4);
     insertBST(root, 2);
     insertBST(root, 7);
-
+    cout<<"inorder -> ";
     inorder(root);
     cout << endl;
+    cout<<"PostOrder ->";
     postorder(root);
     cout << endl;
+    cout<<"MinValue -> ";
+    cout<<minValue(root)->data;
+    cout<<endl;
+    cout<<"maxValue -> ";
+    cout<<maxValue(root)->data;
     return 0;
 }
