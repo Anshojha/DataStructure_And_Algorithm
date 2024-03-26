@@ -78,6 +78,42 @@ Node* maxValue(Node* root){
     }
     return temp1;
 }
+
+
+Node* deleteFromBst(Node* root , int val){
+    if(root == NULL)  return root;
+
+    if(root -> data == val){
+        if(root -> left == NULL && root -> right == NULL){
+            delete root;
+            return NULL;
+        }
+        if(root -> left != NULL && root -> right == NULL){
+            Node *temp = root -> left;
+            delete root;
+            return temp;
+        }
+        if(root -> left == NULL && root -> right != NULL){
+            Node *temp = root -> right;
+            delete root;
+            return temp;
+        }
+
+        if(root -> right != NULL && root -> left != NULL){
+            int mini = minValue(root -> right)->data;
+            root -> data = mini;
+            root -> right = deleteFromBst(root -> right , mini);
+            return root;
+        }
+    }
+    else if(root -> data > val){
+        root -> left = deleteFromBst(root -> left , val);
+    }
+    else {
+        root -> right = deleteFromBst(root -> right , val);
+    }
+}
+
 int main()
 {
 
@@ -99,5 +135,9 @@ int main()
     cout<<endl;
     cout<<"maxValue -> ";
     cout<<maxValue(root)->data;
+    root = deleteFromBst(root , 5);
+        cout<<endl;
+    cout<<"inorder  -> ";
+    inorder(root);
     return 0;
 }
