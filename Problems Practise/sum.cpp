@@ -1,12 +1,39 @@
-#include<iostream>
+#include <iostream>
+#include <deque>
+#include <vector>
+
 using namespace std;
-int sumofnatural(int n){
-    int sum = (n*(n+1))/2;
-     cout<<sum;
+
+int getPotentialOfWinner(vector<int> potential, long int k) {
+    deque<int> queue;
+    int consecutiveWins = 0;
+    int winnerPotential = 0;
+    
+    for (int i = 0; i < potential.size(); i++) {
+        if (queue.empty()) {
+            queue.push_front(i);
+        } else {
+            while (!queue.empty() && potential[i] > potential[queue.front()]) {
+                queue.pop_front();
+                consecutiveWins++;
+                if (consecutiveWins == k) {
+                    // Adjust to return one less potential
+                    return potential[i] - 1;
+                }
+            }
+            queue.push_front(i);
+        }
+    }
+    
+    return winnerPotential;
 }
-int main()
-{ int num;
-           cout<<"Enter the number :"<<endl;
-           cin>>num;
-            sumofnatural(num);
- return 0;}
+
+int main() {
+    vector<int> potential = {1, 3, 2, 4, 5};
+    long int k = 2;
+    
+    int winnerPotential = getPotentialOfWinner(potential, k);
+    cout << "Potential of the winning player: " << winnerPotential << endl;
+    
+    return 0;
+}
