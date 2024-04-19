@@ -1,5 +1,7 @@
 #include<iostream>
 #include<algorithm>
+
+
 void replaceSpaces(string &s){
     string temp = "";
     for(int  i=0 ; i<s.length();i++){
